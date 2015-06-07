@@ -1,16 +1,5 @@
-## Development Quickstart
-### Install pyenv on OSX
+# exif2csv.app
 
-```bash
-brew install pyenv
-brew install pyenv-virtualenv
-```
+🔥[Download](https://jamesfriend.com.au/files/exif2csv.zip)🔥�
 
-### Installing project deps
-
-```bash
-# in repo root dir
-pyenv install -s # installs .python-version if necessary
-pyenv virtualenv exif2csv 
-pip install -r requirements.txt
-```
+Lets you select a directory of images from which a CSV of EXIF metadata will be extracted.
