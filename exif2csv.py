@@ -2,14 +2,14 @@ import exifread
 import csv
 import os
 import glob
-import tkinter as tk
-from tkinter import filedialog
+import Tkinter
+import tkFileDialog
 from datetime import datetime
 
-tk_root = tk.Tk()
+tk_root = Tkinter.Tk()
 tk_root.withdraw()
-input_dir = filedialog.askdirectory()
-output_file = filedialog.asksaveasfilename(defaultextension='.csv', initialfile='image_exif_metadata')
+input_dir = tkFileDialog.askdirectory()
+output_file = tkFileDialog.asksaveasfilename(defaultextension='.csv', initialfile='image_exif_metadata')
 
 # recursive glob
 image_file_paths = glob.glob(os.path.join(input_dir, '*.*')) + glob.glob(os.path.join(input_dir, '*', '*.*'))
@@ -22,7 +22,7 @@ for image_file_path in image_file_paths:
   images_tags.append(exifread.process_file(f, details=False))
 
 exif_tag_types = sorted(images_tags[0].keys())
-with open(output_file, 'w', encoding='utf8', newline='') as csvfile:
+with open(output_file, 'wb') as csvfile:
   c = csv.writer(csvfile)
   c.writerow(exif_tag_types)
   for tags in images_tags:
